@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/title1"
         android:layout_width="match_parent"
         android:layout_height="470dp"
         android:scaleType="fitXY"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/title1" />
 
     <TextView
         android:id="@+id/textView2"
@@ -56,8 +56,8 @@
         android:background="@drawable/round_button"
         android:text="@string/button_start"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
 
 </LinearLayout>

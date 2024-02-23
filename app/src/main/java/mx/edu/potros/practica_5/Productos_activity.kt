@@ -15,6 +15,7 @@ import android.content.Context
 var menu: ArrayList<Product> = ArrayList<Product>()
 class Productos_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        menu = ArrayList<Product>()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
         var menuOption:String? =intent.getStringExtra("menuType")
@@ -24,6 +25,30 @@ class Productos_activity : AppCompatActivity() {
 
         var adaptador:  AdaptadorProductos = AdaptadorProductos(this,menu)
         listView.adapter=adaptador
+
+
+        var imagen: ImageView = findViewById(R.id.title1)
+
+        when(menuOption){
+            "Antojitos"->{
+                imagen.setImageResource(R.drawable.antojitos)
+            }
+            "Especialidades"->{
+                imagen.setImageResource(R.drawable.especialidades)
+            }
+            "Combinaciones"->{
+                imagen.setImageResource(R.drawable.combinations)
+            }
+            "Tortas"->{
+                imagen.setImageResource(R.drawable.tortas)
+            }
+            "Sopas"->{
+                imagen.setImageResource(R.drawable.sopas)
+            }
+            "Bebidas"->{
+                imagen.setImageResource(R.drawable.drinks)
+            }
+        }
 
     }
     fun agregarProductos(Option:String?){
@@ -51,7 +76,7 @@ class Productos_activity : AppCompatActivity() {
 
             }
             "Especialidades"->{
-                menu.add(Product("Especialidades",R.drawable.especialidades,"Muy especial que no esta en la pagina es secreto"
+                menu.add(Product("Torta mega suprema",R.drawable.tortamilanesa,"Torta cuatro quesos llena de cebolla del himalaya"
                     ,45.00))
             }
             "Combinations"->{
@@ -123,32 +148,25 @@ class Productos_activity : AppCompatActivity() {
 
     }
     private class AdaptadorProductos: BaseAdapter{
-        var productos=ArrayList<Product>()
+        var producto=ArrayList<Product>()
         var contexto: Context? = null
-        constructor(contexto:Context,productos: ArrayList<Product>){
-            this.productos=productos
+        constructor(contexto:Context, producto: ArrayList<Product>){
+            this.producto=producto
             this.contexto=contexto
         }
-
         override fun getCount(): Int {
-            TODO("Not yet implemented")
-            return productos.size
+            return producto.size
 
         }
-
         override fun getItem(position: Int): Any {
-            TODO("Not yet implemented")
-            return productos[position]
+            return producto[position]
         }
-
         override fun getItemId(position: Int): Long {
-            TODO("Not yet implemented")
             return position.toLong()
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            TODO("Not yet implemented")
-            var prod=productos[position]
+            var prod=producto[position]
             var inflador= LayoutInflater.from(contexto)
             var vista=inflador.inflate(R.layout.producto_view,null)
 
